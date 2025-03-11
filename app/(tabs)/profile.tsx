@@ -1,3 +1,4 @@
+import { CustomButton } from "@/components/CustomButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Button, useColorScheme } from "react-native";
@@ -47,7 +48,7 @@ export default function ProfileScreen() {
       ) : null}
 
       {/* 名前をリセットするボタン */}
-      <Button title="Reset Name" onPress={() => saveName("")} />
+      <CustomButton title="Reset Name" onPress={() => saveName("")} disabled={!name} />
     </View>
   );
 }
