@@ -54,6 +54,9 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen name="apiData" options={{ title: "API Data", tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="clipboard.fill" color={color} />
+          ), }} />
     </Tabs>
   );
 }
