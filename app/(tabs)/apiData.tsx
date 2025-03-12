@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { FlatList, Text, View, ActivityIndicator, StyleSheet, Pressable } from "react-native";
+import { FlatList, Text, View, ActivityIndicator, StyleSheet, Pressable, Button, ScrollView } from "react-native";
 
 interface Post {
   id: number;
@@ -45,6 +45,8 @@ export default function ApiDataScreen() {
   }
 
   return (
+    <>
+    <Button title="新規投稿" onPress={() => router.push("../apiData/new")} />
     <FlatList data={posts} renderItem={({ item }) => (
       <Pressable onPress={() => router.push(`../apiData/${item.id}`)} style={styles.itemContainer}>
         <Text style={styles.title}>{item.title}</Text>
@@ -53,7 +55,8 @@ export default function ApiDataScreen() {
     )}
     keyExtractor={(item) => item.id.toString()}
     />
-  );
+    </>
+);
 }
 
 const styles = StyleSheet.create({
@@ -70,5 +73,8 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 16,
+  },
+  buttonContainer: {
+    marginBottom: 16,
   }
 })
